@@ -1,21 +1,23 @@
 import React from "react";
+import "./style.css";
 
 const Pokedex = () => {
     return (
         <>
-            <div className="container">
-                <h1 className="heading">Pokedemon name</h1>
-                <div className="abilities">
-                    <h1>Abilities</h1>
-                </div>
-                <div className="stats">
-                    <h1>Hp</h1>
-                    <h1>Attack</h1>
-                    <h1>Defense</h1>
-                    <h1>Speed</h1>
-                    
-                </div>
+
+            <h1>Pokemon name</h1>
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon" />
+            <div className="abilities">
+                <h1>Abilities</h1>
             </div>
+            <div className="stats">
+                <h3>Hp</h3>
+                <h3>Attack</h3>
+                <h3>Defense</h3>
+                <h3>Speed</h3>
+
+            </div>
+
         </>
     );
 };
