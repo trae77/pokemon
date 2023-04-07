@@ -1,17 +1,21 @@
 import React from 'react';
-
+import Card from './Card';
+import Pokedex from './Pokedex';
 
 const Main = () => {
     return (
         <>
             <div className='container'>
-                <div className='left-content'>
-                    <h1>Left Content</h1>
-                </div>
-                <div className='right-content'>
-                    <h1>Right Content</h1>
-                </div>
+                <div className='left-container'>
+                <Card/>
+                <Card/>
+                <Card/>
+                <Card/>
             </div>
+            <div className='right-container'>
+              <Pokedex/>
+            </div>
+        </div >
         </>
     );
 }
