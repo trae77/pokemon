@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-const Card = () => {
+const Card = ({pokemon, loading}) => {
+    console.log(pokemon);
     return (
         <>
             <div className='card'>

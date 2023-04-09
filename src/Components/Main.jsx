@@ -6,18 +6,36 @@ import { useEffect, useState } from 'react';
 
 const Main = () => {
 
-    const [pokemon, setPokemon] = useState([]);
+    const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
+    const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
+    const [nextUrl, setNextUrl] = useState("");
+    const [prevUrl, setPrevUrl] = useState("");
 
 
     const fetchData = async () => {
         setLoading(true);
         let response = await axios.get(url);
-        setPokemon(response.data.results);
-        console.log(response.data.results);
+        setPokemonData(response.data.results);
+        // console.log(response.data.results);
+        setNextUrl(response.data.next);
+        setPrevUrl(response.data.previous);
+       getPokemon(response.data.results);
         setLoading(false);
     };
+
+    const getPokemon = async (response) => {
+        response.map( async (pokemon) => {
+            // console.log(pokemon.name);
+            const res = await axios.get(pokemon.url);
+            // console.log(res.data);
+            setPokemonData(state => {
+                state = [...state,res.data]
+                return state;
+            })
+        });
+    };
+
 
     useEffect(() => {
         fetchData();
@@ -27,22 +45,8 @@ const Main = () => {
         <>
             <div className='container'>
                 <div className='left-container'>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card pokemon = {pokemonData} loading = {loading} />
+                  
                     <div className="btn">
                         <button >Back</button>
                         <button >Next</button>
