@@ -15,22 +15,21 @@ const Main = () => {
 
     const fetchData = async () => {
         setLoading(true);
-        let response = await axios.get(url);
-        setPokemonData(response.data.results);
+        const response = await axios.get(url);
         // console.log(response.data.results);
         setNextUrl(response.data.next);
         setPrevUrl(response.data.previous);
-       getPokemon(response.data.results);
+        getPokemon(response.data.results);
         setLoading(false);
     };
 
     const getPokemon = async (response) => {
-        response.map( async (pokemon) => {
+        response.map(async (pokemon) => {
             // console.log(pokemon.name);
             const res = await axios.get(pokemon.url);
             // console.log(res.data);
             setPokemonData(state => {
-                state = [...state,res.data]
+                state = [...state, res.data]
                 return state;
             })
         });
@@ -45,11 +44,11 @@ const Main = () => {
         <>
             <div className='container'>
                 <div className='left-container'>
-                    <Card pokemon = {pokemonData} loading = {loading} />
-                  
-                    <div className="btn">
-                        <button >Back</button>
-                        <button >Next</button>
+                    <Card pokemon={pokemonData} loading={loading} />
+
+                    <div>
+                        <button className="btn" >Back</button>
+                        <button  className="btn" >Next</button>
                     </div>
                 </div>
                 <div className='right-container'>

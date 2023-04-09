@@ -1,21 +1,25 @@
 import React from 'react';
+import './style.css';
 
 
-const Card = ({pokemon, loading}) => {
-    console.log(pokemon);
+const Card = ({ pokemon, loading }) => {
     return (
         <>
-            <div className='card'>
-                <div className='card-header'>
-                    <h1>Card Header</h1>
-                </div>
-                <div className='card-body'>
-                    <h1>Card Body</h1>
-                </div>
-              
-            </div>
+            {loading ? <h1>Loading...</h1> :
+                pokemon.map((item) => {
+                    return (
+                        <div className='card'>
+                            <h3>{item.id}</h3>
+                            <img className = "pokepic" src={item.sprites.front_default} alt="pokemon" />
+                            <h2>{item.name}</h2>
+                        </div>
+                    )
+                }
+                )
+            }
         </>
     );
 }
+
 
 export default Card;

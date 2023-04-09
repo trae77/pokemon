@@ -17,20 +17,21 @@ body {
 }
 .left-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
+  grid-gap: 2rem;
 }
 .card {
   width: 300px;
+  height: 80px;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  margin: 10px;
+
 }
 .right-container {
   width: 50%;
@@ -54,4 +55,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.pokepic{
+    object-fit: cover;
 }
