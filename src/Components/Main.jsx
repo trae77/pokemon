@@ -29,7 +29,8 @@ const Main = () => {
             const res = await axios.get(pokemon.url);
             // console.log(res.data);
             setPokemonData(state => {
-                state = [...state, res.data]
+                state = [...state, res.data];
+                state.sort((a, b) => a.id > b.id?1 : -1)
                 return state;
             })
         });
@@ -52,7 +53,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className='right-container'>
-                    <Pokedex />
+                    <Pokedex pokemon={pokemonData} loading={loading}/>
                 </div>
             </div >
         </>
