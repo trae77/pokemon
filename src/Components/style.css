@@ -47,3 +47,11 @@ body {
     width : 200px;
   object-fit: cover;
 }
+.btn {
+  background-color: #f50707;
+  border: 1px solid #01a6f9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

@@ -15,7 +15,6 @@ const Pokedex = () => {
                 <h3>Attack</h3>
                 <h3>Defense</h3>
                 <h3>Speed</h3>
-
             </div>
 
         </>
