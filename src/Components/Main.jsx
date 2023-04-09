@@ -46,7 +46,7 @@ const Main = () => {
                 <div className='left-container'>
                     <Card pokemon={pokemonData} loading={loading} />
 
-                    <div>
+                    <div className="btngroup">
                         <button className="btn" >Back</button>
                         <button  className="btn" >Next</button>
                     </div>

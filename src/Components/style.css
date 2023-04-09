@@ -19,11 +19,12 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
   grid-gap: 2rem;
+  padding: 0 1rem;
 }
 .card {
-  width: 300px;
+  width: 280px;
   height: 80px;
-  background-color: #fff;
+  background-color: #f3c703;
   border-radius: 1rem;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   padding: 0 1.5rem;
@@ -31,7 +32,6 @@ body {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-
 }
 .right-container {
   width: 50%;
@@ -43,19 +43,29 @@ body {
   top: 50px;
 }
 .right-container img {
-    margin : 10px;
-    height : 200px;
-    width : 200px;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
   object-fit: cover;
 }
 .btn {
   background-color: #f50707;
-  border: 1px solid #01a6f9;
+  border: 2px solid #14f004;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  width : 100%;
 }
-.pokepic{
-    object-fit: cover;
+.btngroup {
+  margin: 10px;
+  padding: 25px 50px;
+  background-color: rgb(9, 41, 248);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  width : 100%;
+}
+.pokepic {
+  object-fit: cover;
 }
