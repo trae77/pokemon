@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.css";
 
-const Pokedex = () => {
+const Pokedex = ({data}) => {
+    console.log(data);
     return (
         <>
 
