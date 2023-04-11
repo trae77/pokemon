@@ -13,7 +13,7 @@ const Main = () => {
     const [prevUrl, setPrevUrl] = useState();
     const [pokeDex, setPokeDex] = useState();
 
-    const fetchData = async () => {
+   const fetchData = async () => {
         setLoading(true);
         const response = await axios.get(url);
         // console.log(response.data.results);
@@ -30,8 +30,8 @@ const Main = () => {
             console.log(res.data);
             setPokemonData(state => {
                 state = [...state, res.data];
-                state.sort((a, b) => a.id > b.id?1 : -1)
-            //   filter out the pokemon that are coming up more than once 
+                state.sort((a, b) => a.id > b.id ? 1 : -1)
+                //   filter out the pokemon that are coming up more than once 
                 state = state.filter((item, index) => {
                     const _item = JSON.stringify(item);
                     return index === state.findIndex(obj => {
@@ -46,21 +46,24 @@ const Main = () => {
 
     useEffect(() => {
         fetchData();
-    },[url]);
+    }, [url]);
 
     return (
         <>
             <div className='container'>
                 <div className='left-container'>
-                    <Card pokemon={pokemonData} loading={loading} pokemonInfo={poke=>setPokeDex(poke)} />
+                    <Card pokemon={pokemonData} loading={loading} pokemonInfo={poke => setPokeDex(poke)} />
 
                     <div className="btngroup">
-                        <button className="btn" >Back</button>
-                        <button  className="btn" >Next</button>
+                        {prevUrl && <button onClick={() =>
+                            setUrl(prevUrl)} className="btn" >Back</button>}
+
+                        {nextUrl && <button onClick={() =>
+                            setUrl(nextUrl)} className="btn" >Next</button>}
                     </div>
                 </div>
                 <div className='right-container'>
-                    <Pokedex data ={pokeDex}/>
+                    <Pokedex data={pokeDex} />
                 </div>
             </div >
         </>
