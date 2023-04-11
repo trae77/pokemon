@@ -10,20 +10,20 @@ const Pokedex = ({ data }) => {
                     <>
                     
                         <h2>{data.name}</h2>
-                        <img src={data.sprites.front_default}
+                        <img src={data.sprites.front_default} className = "pokedexpic"
                             alt="pokemon" />
                         <div>
                             <h1 className ="abilities">Abilities :
                                 {data.abilities.map((item) => {
                                     return (
-                                        <h3>{item.ability.name}</h3>
+                                        <h3 className ="abil">{item.ability.name}</h3>
                                     )
                                 })
                                 }
                             </h1>
                         </div>
                         <div className="stats">
-                            <h3>Stats :
+                            <h3 className= "stat">Stats :
                                 {data.stats.map((item) => {
                                     return (
                                         <h3>{item.stat.name}:{item.base_stat}</h3>

@@ -42,12 +42,6 @@ body {
   text-align: center;
 
 }
-.right-container img {
-  margin: 10px;
-  height: 200px;
-  width: 200px;
-  object-fit: cover;
-}
 .btn {
   background-color: #f50707;
   border: 2px solid #14f004;
@@ -70,13 +64,22 @@ body {
   object-fit: cover;
 }
 .stats {
-  justify-content: space-between;
-  width: 100%;
+  background-color: aqua;
 }
-.abilities {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+.abil{
+  background-color: #14f004;
+  border: 2px solid #f50707;
+  width :250px;
+  text-align: center;
+  display: inline-block;
+}
+.abilities{
+  background-color: #f50707;
+  border: 2px solid #14f004;
+}
+.pokedexpic{
+  width :300px;
+  height: 250px;
+  object-fit: cover;
 }
 
