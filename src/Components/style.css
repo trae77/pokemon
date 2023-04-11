@@ -40,7 +40,7 @@ body {
   position: fixed;
   right: 10px;
   text-align: center;
-  top: 50px;
+
 }
 .right-container img {
   margin: 10px;
@@ -55,7 +55,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width : 100%;
+  width: 100%;
 }
 .btngroup {
   margin: 10px;
@@ -64,8 +64,19 @@ body {
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
-  width : 100%;
+  width: 100%;
 }
 .pokepic {
   object-fit: cover;
 }
+.stats {
+  justify-content: space-between;
+  width: 100%;
+}
+.abilities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+

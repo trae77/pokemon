@@ -1,23 +1,41 @@
 import React from "react";
 import "./style.css";
 
-const Pokedex = ({data}) => {
+const Pokedex = ({ data }) => {
     console.log(data);
     return (
         <>
-
-            <h1>Pokemon name</h1>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="pokemon" />
-            <div className="abilities">
-                <h1>Abilities</h1>
-            </div>
-            <div className="stats">
-                <h3>Hp</h3>
-                <h3>Attack</h3>
-                <h3>Defense</h3>
-                <h3>Speed</h3>
-            </div>
-
+            {
+                (!data) ? "" : (
+                    <>
+                    
+                        <h2>{data.name}</h2>
+                        <img src={data.sprites.front_default}
+                            alt="pokemon" />
+                        <div>
+                            <h1 className ="abilities">Abilities :
+                                {data.abilities.map((item) => {
+                                    return (
+                                        <h3>{item.ability.name}</h3>
+                                    )
+                                })
+                                }
+                            </h1>
+                        </div>
+                        <div className="stats">
+                            <h3>Stats :
+                                {data.stats.map((item) => {
+                                    return (
+                                        <h3>{item.stat.name}:{item.base_stat}</h3>
+                                    )
+                                })
+                                }
+                            </h3>
+                        </div>
+                   
+                    </>
+                )
+            }
         </>
     );
 };
