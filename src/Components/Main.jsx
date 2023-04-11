@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 const Main = () => {
 
     const [pokemonData, setPokemonData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/");
-    const [nextUrl, setNextUrl] = useState("");
-    const [prevUrl, setPrevUrl] = useState("");
+    const [nextUrl, setNextUrl] = useState();
+    const [prevUrl, setPrevUrl] = useState();
 
 
     const fetchData = async () => {
@@ -25,12 +25,19 @@ const Main = () => {
 
     const getPokemon = async (response) => {
         response.map(async (pokemon) => {
-            // console.log(pokemon.name);
+            console.log(pokemon.name);
             const res = await axios.get(pokemon.url);
-            // console.log(res.data);
+            console.log(res.data);
             setPokemonData(state => {
                 state = [...state, res.data];
                 state.sort((a, b) => a.id > b.id?1 : -1)
+            //   filter out the pokemon that are coming up more than once 
+                state = state.filter((item, index) => {
+                    const _item = JSON.stringify(item);
+                    return index === state.findIndex(obj => {
+                        return JSON.stringify(obj) === _item;
+                    });
+                });
                 return state;
             })
         });
@@ -39,7 +46,7 @@ const Main = () => {
 
     useEffect(() => {
         fetchData();
-    }, [url]);
+    },[url]);
 
     return (
         <>
@@ -53,7 +60,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className='right-container'>
-                    <Pokedex pokemon={pokemonData} loading={loading}/>
+                    <Pokedex/>
                 </div>
             </div >
         </>
